@@ -1,0 +1,2016 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아파트 정보 (전세가율 정렬)</title>
+    
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-family: Arial, sans-serif;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+
+</head>
+<body>
+    <h1>아파트 정보 (전세가율 기준 정렬)</h1>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>주소</th>
+      <th>지역</th>
+      <th>아파트명</th>
+      <th>평수</th>
+      <th>전고점</th>
+      <th>매매가</th>
+      <th>전세가</th>
+      <th>갭</th>
+      <th>전세가율</th>
+      <th>전고점대비</th>
+      <th>세대수</th>
+      <th>연식</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>서울특별시 영등포구 도림동 820</td>
+      <td>영등포구</td>
+      <td>쌍용플래티넘시티1단지 (<a href="https://hogangnono.com/search?q=%EC%8C%8D%EC%9A%A9%ED%94%8C%EB%9E%98%ED%8B%B0%EB%84%98%EC%8B%9C%ED%8B%B01%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8C%8D%EC%9A%A9%ED%94%8C%EB%9E%98%ED%8B%B0%EB%84%98%EC%8B%9C%ED%8B%B01%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>27</td>
+      <td>70,000</td>
+      <td>50,000</td>
+      <td>46,000</td>
+      <td>4,000</td>
+      <td>92.0%</td>
+      <td>28.0%</td>
+      <td>626</td>
+      <td>2,006</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 상암동 1734</td>
+      <td>마포구</td>
+      <td>상암한화오벨리스크 (<a href="https://hogangnono.com/search?q=%EC%83%81%EC%95%94%ED%95%9C%ED%99%94%EC%98%A4%EB%B2%A8%EB%A6%AC%EC%8A%A4%ED%81%AC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%83%81%EC%95%94%ED%95%9C%ED%99%94%EC%98%A4%EB%B2%A8%EB%A6%AC%EC%8A%A4%ED%81%AC" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>28,000</td>
+      <td>26,000</td>
+      <td>23,500</td>
+      <td>2,500</td>
+      <td>90.0%</td>
+      <td>7.0%</td>
+      <td>897</td>
+      <td>2,013</td>
+    </tr>
+    <tr>
+      <td>서울특별시 종로구 내수동 75</td>
+      <td>종로구</td>
+      <td>용비어천가 (<a href="https://hogangnono.com/search?q=%EC%9A%A9%EB%B9%84%EC%96%B4%EC%B2%9C%EA%B0%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9A%A9%EB%B9%84%EC%96%B4%EC%B2%9C%EA%B0%80" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>39,300</td>
+      <td>29,500</td>
+      <td>26,333</td>
+      <td>3,167</td>
+      <td>89.0%</td>
+      <td>24.0%</td>
+      <td>675</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 도화동 555</td>
+      <td>마포구</td>
+      <td>마포한화오벨리스크(오) (<a href="https://hogangnono.com/search?q=%EB%A7%88%ED%8F%AC%ED%95%9C%ED%99%94%EC%98%A4%EB%B2%A8%EB%A6%AC%EC%8A%A4%ED%81%AC%28%EC%98%A4%29" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%A7%88%ED%8F%AC%ED%95%9C%ED%99%94%EC%98%A4%EB%B2%A8%EB%A6%AC%EC%8A%A4%ED%81%AC%28%EC%98%A4%29" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>52,000</td>
+      <td>40,450</td>
+      <td>36,000</td>
+      <td>4,450</td>
+      <td>89.0%</td>
+      <td>22.0%</td>
+      <td>608</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 중구 황학동 1229</td>
+      <td>중구</td>
+      <td>힐스테이트청계센트럴 (<a href="https://hogangnono.com/search?q=%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8%EC%B2%AD%EA%B3%84%EC%84%BC%ED%8A%B8%EB%9F%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8%EC%B2%AD%EA%B3%84%EC%84%BC%ED%8A%B8%EB%9F%B4" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>43,141</td>
+      <td>40,000</td>
+      <td>35,000</td>
+      <td>5,000</td>
+      <td>88.0%</td>
+      <td>7.0%</td>
+      <td>522</td>
+      <td>2,024</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 명일동 46-3</td>
+      <td>강동구</td>
+      <td>고덕역대명벨리온 (<a href="https://hogangnono.com/search?q=%EA%B3%A0%EB%8D%95%EC%97%AD%EB%8C%80%EB%AA%85%EB%B2%A8%EB%A6%AC%EC%98%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B3%A0%EB%8D%95%EC%97%AD%EB%8C%80%EB%AA%85%EB%B2%A8%EB%A6%AC%EC%98%A8" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>39,450</td>
+      <td>36,000</td>
+      <td>31,000</td>
+      <td>5,000</td>
+      <td>86.0%</td>
+      <td>8.0%</td>
+      <td>503</td>
+      <td>2,021</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 도화동 559</td>
+      <td>마포구</td>
+      <td>마포트라팰리스(오) (<a href="https://hogangnono.com/search?q=%EB%A7%88%ED%8F%AC%ED%8A%B8%EB%9D%BC%ED%8C%B0%EB%A6%AC%EC%8A%A4%28%EC%98%A4%29" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%A7%88%ED%8F%AC%ED%8A%B8%EB%9D%BC%ED%8C%B0%EB%A6%AC%EC%8A%A4%28%EC%98%A4%29" target="_blank">네이버부동산</a>)</td>
+      <td>45</td>
+      <td>111,000</td>
+      <td>70,000</td>
+      <td>59,850</td>
+      <td>10,150</td>
+      <td>86.0%</td>
+      <td>36.0%</td>
+      <td>648</td>
+      <td>2,006</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 장안동 374-1</td>
+      <td>동대문구</td>
+      <td>장안현대벤처빌 (<a href="https://hogangnono.com/search?q=%EC%9E%A5%EC%95%88%ED%98%84%EB%8C%80%EB%B2%A4%EC%B2%98%EB%B9%8C" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9E%A5%EC%95%88%ED%98%84%EB%8C%80%EB%B2%A4%EC%B2%98%EB%B9%8C" target="_blank">네이버부동산</a>)</td>
+      <td>21</td>
+      <td>21,000</td>
+      <td>18,750</td>
+      <td>16,000</td>
+      <td>2,750</td>
+      <td>85.0%</td>
+      <td>10.0%</td>
+      <td>615</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 목동 917-9</td>
+      <td>양천구</td>
+      <td>현대41타워 (<a href="https://hogangnono.com/search?q=%ED%98%84%EB%8C%8041%ED%83%80%EC%9B%8C" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%98%84%EB%8C%8041%ED%83%80%EC%9B%8C" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>28,500</td>
+      <td>23,000</td>
+      <td>19,000</td>
+      <td>4,000</td>
+      <td>83.0%</td>
+      <td>19.0%</td>
+      <td>586</td>
+      <td>2,001</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 강일동 72</td>
+      <td>강동구</td>
+      <td>힐스테이트리슈빌강일 (<a href="https://hogangnono.com/search?q=%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8%EB%A6%AC%EC%8A%88%EB%B9%8C%EA%B0%95%EC%9D%BC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8%EB%A6%AC%EC%8A%88%EB%B9%8C%EA%B0%95%EC%9D%BC" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>82,682</td>
+      <td>79,283</td>
+      <td>65,000</td>
+      <td>14,283</td>
+      <td>82.0%</td>
+      <td>4.0%</td>
+      <td>809</td>
+      <td>2,023</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 공덕동 463</td>
+      <td>마포구</td>
+      <td>마포현대하이엘 (<a href="https://hogangnono.com/search?q=%EB%A7%88%ED%8F%AC%ED%98%84%EB%8C%80%ED%95%98%EC%9D%B4%EC%97%98" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%A7%88%ED%8F%AC%ED%98%84%EB%8C%80%ED%95%98%EC%9D%B4%EC%97%98" target="_blank">네이버부동산</a>)</td>
+      <td>29</td>
+      <td>37,200</td>
+      <td>37,200</td>
+      <td>30,250</td>
+      <td>6,950</td>
+      <td>81.0%</td>
+      <td>0.0%</td>
+      <td>576</td>
+      <td>2,005</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 1293</td>
+      <td>양천구</td>
+      <td>학마을1단지 (<a href="https://hogangnono.com/search?q=%ED%95%99%EB%A7%88%EC%9D%841%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%95%99%EB%A7%88%EC%9D%841%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>37,400</td>
+      <td>37,400</td>
+      <td>30,000</td>
+      <td>7,400</td>
+      <td>80.0%</td>
+      <td>0.0%</td>
+      <td>639</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 목동 917</td>
+      <td>양천구</td>
+      <td>목동파라곤 (<a href="https://hogangnono.com/search?q=%EB%AA%A9%EB%8F%99%ED%8C%8C%EB%9D%BC%EA%B3%A4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%AA%A9%EB%8F%99%ED%8C%8C%EB%9D%BC%EA%B3%A4" target="_blank">네이버부동산</a>)</td>
+      <td>36</td>
+      <td>115,000</td>
+      <td>97,000</td>
+      <td>75,000</td>
+      <td>22,000</td>
+      <td>77.0%</td>
+      <td>15.0%</td>
+      <td>700</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 종로구 종로1가 24</td>
+      <td>종로구</td>
+      <td>르메이에르종로타운 (<a href="https://hogangnono.com/search?q=%EB%A5%B4%EB%A9%94%EC%9D%B4%EC%97%90%EB%A5%B4%EC%A2%85%EB%A1%9C%ED%83%80%EC%9A%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%A5%B4%EB%A9%94%EC%9D%B4%EC%97%90%EB%A5%B4%EC%A2%85%EB%A1%9C%ED%83%80%EC%9A%B4" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>42,000</td>
+      <td>42,000</td>
+      <td>32,000</td>
+      <td>10,000</td>
+      <td>76.0%</td>
+      <td>0.0%</td>
+      <td>529</td>
+      <td>2,007</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 57-5</td>
+      <td>서대문구</td>
+      <td>서대문푸르지오센트럴파크 (<a href="https://hogangnono.com/search?q=%EC%84%9C%EB%8C%80%EB%AC%B8%ED%91%B8%EB%A5%B4%EC%A7%80%EC%98%A4%EC%84%BC%ED%8A%B8%EB%9F%B4%ED%8C%8C%ED%81%AC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%84%9C%EB%8C%80%EB%AC%B8%ED%91%B8%EB%A5%B4%EC%A7%80%EC%98%A4%EC%84%BC%ED%8A%B8%EB%9F%B4%ED%8C%8C%ED%81%AC" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>83,100</td>
+      <td>69,000</td>
+      <td>51,650</td>
+      <td>17,350</td>
+      <td>75.0%</td>
+      <td>16.0%</td>
+      <td>832</td>
+      <td>2,022</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 474</td>
+      <td>서대문구</td>
+      <td>홍제역해링턴플레이스 (<a href="https://hogangnono.com/search?q=%ED%99%8D%EC%A0%9C%EC%97%AD%ED%95%B4%EB%A7%81%ED%84%B4%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%99%8D%EC%A0%9C%EC%97%AD%ED%95%B4%EB%A7%81%ED%84%B4%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4" target="_blank">네이버부동산</a>)</td>
+      <td>21</td>
+      <td>70,000</td>
+      <td>70,000</td>
+      <td>52,000</td>
+      <td>18,000</td>
+      <td>74.0%</td>
+      <td>0.0%</td>
+      <td>1,116</td>
+      <td>2,021</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 답십리동 10</td>
+      <td>동대문구</td>
+      <td>동아 (<a href="https://hogangnono.com/search?q=%EB%8F%99%EC%95%84" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%99%EC%95%84" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>96,000</td>
+      <td>73,000</td>
+      <td>53,000</td>
+      <td>20,000</td>
+      <td>73.0%</td>
+      <td>23.0%</td>
+      <td>741</td>
+      <td>2,001</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 고덕동 136</td>
+      <td>강동구</td>
+      <td>고덕풍경채어바니티 (<a href="https://hogangnono.com/search?q=%EA%B3%A0%EB%8D%95%ED%92%8D%EA%B2%BD%EC%B1%84%EC%96%B4%EB%B0%94%EB%8B%88%ED%8B%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B3%A0%EB%8D%95%ED%92%8D%EA%B2%BD%EC%B1%84%EC%96%B4%EB%B0%94%EB%8B%88%ED%8B%B0" target="_blank">네이버부동산</a>)</td>
+      <td>35</td>
+      <td>110,122</td>
+      <td>89,330</td>
+      <td>65,000</td>
+      <td>24,330</td>
+      <td>73.0%</td>
+      <td>18.0%</td>
+      <td>780</td>
+      <td>2,024</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 여의도동 525</td>
+      <td>영등포구</td>
+      <td>브라이튼여의도(오) (<a href="https://hogangnono.com/search?q=%EB%B8%8C%EB%9D%BC%EC%9D%B4%ED%8A%BC%EC%97%AC%EC%9D%98%EB%8F%84%28%EC%98%A4%29" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%B8%8C%EB%9D%BC%EC%9D%B4%ED%8A%BC%EC%97%AC%EC%9D%98%EB%8F%84%28%EC%98%A4%29" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>69,800</td>
+      <td>69,800</td>
+      <td>50,000</td>
+      <td>19,800</td>
+      <td>72.0%</td>
+      <td>0.0%</td>
+      <td>849</td>
+      <td>2,023</td>
+    </tr>
+    <tr>
+      <td>서울특별시 광진구 자양동 227-7</td>
+      <td>광진구</td>
+      <td>더샵스타시티 (<a href="https://hogangnono.com/search?q=%EB%8D%94%EC%83%B5%EC%8A%A4%ED%83%80%EC%8B%9C%ED%8B%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8D%94%EC%83%B5%EC%8A%A4%ED%83%80%EC%8B%9C%ED%8B%B0" target="_blank">네이버부동산</a>)</td>
+      <td>38</td>
+      <td>185,500</td>
+      <td>150,000</td>
+      <td>105,000</td>
+      <td>45,000</td>
+      <td>70.0%</td>
+      <td>19.0%</td>
+      <td>1,177</td>
+      <td>2,007</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 연희동 740</td>
+      <td>서대문구</td>
+      <td>성원 (<a href="https://hogangnono.com/search?q=%EC%84%B1%EC%9B%90" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%84%B1%EC%9B%90" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>100,000</td>
+      <td>88,000</td>
+      <td>62,000</td>
+      <td>26,000</td>
+      <td>70.0%</td>
+      <td>12.0%</td>
+      <td>581</td>
+      <td>2,001</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 도화동 555</td>
+      <td>마포구</td>
+      <td>마포한화오벨리스크 (<a href="https://hogangnono.com/search?q=%EB%A7%88%ED%8F%AC%ED%95%9C%ED%99%94%EC%98%A4%EB%B2%A8%EB%A6%AC%EC%8A%A4%ED%81%AC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%A7%88%ED%8F%AC%ED%95%9C%ED%99%94%EC%98%A4%EB%B2%A8%EB%A6%AC%EC%8A%A4%ED%81%AC" target="_blank">네이버부동산</a>)</td>
+      <td>29</td>
+      <td>120,000</td>
+      <td>109,000</td>
+      <td>75,000</td>
+      <td>34,000</td>
+      <td>69.0%</td>
+      <td>9.0%</td>
+      <td>662</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 종로구 사직동 9</td>
+      <td>종로구</td>
+      <td>광화문스페이스본1단지 (<a href="https://hogangnono.com/search?q=%EA%B4%91%ED%99%94%EB%AC%B8%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B3%B81%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B4%91%ED%99%94%EB%AC%B8%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B3%B81%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>148,500</td>
+      <td>148,500</td>
+      <td>103,000</td>
+      <td>45,500</td>
+      <td>69.0%</td>
+      <td>0.0%</td>
+      <td>657</td>
+      <td>2,008</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 331</td>
+      <td>서대문구</td>
+      <td>홍제현대 (<a href="https://hogangnono.com/search?q=%ED%99%8D%EC%A0%9C%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%99%8D%EC%A0%9C%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>27</td>
+      <td>100,700</td>
+      <td>81,000</td>
+      <td>55,000</td>
+      <td>26,000</td>
+      <td>68.0%</td>
+      <td>19.0%</td>
+      <td>704</td>
+      <td>1,992</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 남가좌동 388</td>
+      <td>서대문구</td>
+      <td>DMC센트럴아이파크 (<a href="https://hogangnono.com/search?q=DMC%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=DMC%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC" target="_blank">네이버부동산</a>)</td>
+      <td>38</td>
+      <td>160,000</td>
+      <td>133,000</td>
+      <td>89,000</td>
+      <td>44,000</td>
+      <td>67.0%</td>
+      <td>16.0%</td>
+      <td>1,061</td>
+      <td>2,018</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 청량리동 235-11</td>
+      <td>동대문구</td>
+      <td>미주 (<a href="https://hogangnono.com/search?q=%EB%AF%B8%EC%A3%BC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%AF%B8%EC%A3%BC" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>114,500</td>
+      <td>64,000</td>
+      <td>43,000</td>
+      <td>21,000</td>
+      <td>67.0%</td>
+      <td>44.0%</td>
+      <td>1,089</td>
+      <td>1,978</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 460</td>
+      <td>서대문구</td>
+      <td>인왕산현대 (<a href="https://hogangnono.com/search?q=%EC%9D%B8%EC%99%95%EC%82%B0%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9D%B8%EC%99%95%EC%82%B0%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>110,000</td>
+      <td>88,500</td>
+      <td>58,000</td>
+      <td>30,500</td>
+      <td>66.0%</td>
+      <td>19.0%</td>
+      <td>700</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 1326</td>
+      <td>양천구</td>
+      <td>래미안목동아델리체 (<a href="https://hogangnono.com/search?q=%EB%9E%98%EB%AF%B8%EC%95%88%EB%AA%A9%EB%8F%99%EC%95%84%EB%8D%B8%EB%A6%AC%EC%B2%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%9E%98%EB%AF%B8%EC%95%88%EB%AA%A9%EB%8F%99%EC%95%84%EB%8D%B8%EB%A6%AC%EC%B2%B4" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>135,000</td>
+      <td>115,500</td>
+      <td>76,000</td>
+      <td>39,500</td>
+      <td>66.0%</td>
+      <td>14.0%</td>
+      <td>1,497</td>
+      <td>2,021</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 1317</td>
+      <td>양천구</td>
+      <td>신정이펜하우스4단지 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EC%A0%95%EC%9D%B4%ED%8E%9C%ED%95%98%EC%9A%B0%EC%8A%A44%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EC%A0%95%EC%9D%B4%ED%8E%9C%ED%95%98%EC%9A%B0%EC%8A%A44%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>96,000</td>
+      <td>78,300</td>
+      <td>51,000</td>
+      <td>27,300</td>
+      <td>65.0%</td>
+      <td>18.0%</td>
+      <td>546</td>
+      <td>2,011</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 용두동 779</td>
+      <td>동대문구</td>
+      <td>신동아 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EB%8F%99%EC%95%84" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EB%8F%99%EC%95%84" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>99,000</td>
+      <td>79,000</td>
+      <td>51,000</td>
+      <td>28,000</td>
+      <td>65.0%</td>
+      <td>20.0%</td>
+      <td>772</td>
+      <td>1,994</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 천호동 423-200</td>
+      <td>강동구</td>
+      <td>강동밀레니얼중흥S-클래스 (<a href="https://hogangnono.com/search?q=%EA%B0%95%EB%8F%99%EB%B0%80%EB%A0%88%EB%8B%88%EC%96%BC%EC%A4%91%ED%9D%A5S-%ED%81%B4%EB%9E%98%EC%8A%A4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B0%95%EB%8F%99%EB%B0%80%EB%A0%88%EB%8B%88%EC%96%BC%EC%A4%91%ED%9D%A5S-%ED%81%B4%EB%9E%98%EC%8A%A4" target="_blank">네이버부동산</a>)</td>
+      <td>34</td>
+      <td>137,029</td>
+      <td>124,800</td>
+      <td>80,000</td>
+      <td>44,800</td>
+      <td>64.0%</td>
+      <td>8.0%</td>
+      <td>999</td>
+      <td>2,024</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 대방동 502</td>
+      <td>동작구</td>
+      <td>대방현대1차 (<a href="https://hogangnono.com/search?q=%EB%8C%80%EB%B0%A9%ED%98%84%EB%8C%801%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8C%80%EB%B0%A9%ED%98%84%EB%8C%801%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>29</td>
+      <td>114,000</td>
+      <td>105,000</td>
+      <td>67,000</td>
+      <td>38,000</td>
+      <td>64.0%</td>
+      <td>7.0%</td>
+      <td>514</td>
+      <td>1,994</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 여의도동 17</td>
+      <td>영등포구</td>
+      <td>여의도더샵아일랜드파크 (<a href="https://hogangnono.com/search?q=%EC%97%AC%EC%9D%98%EB%8F%84%EB%8D%94%EC%83%B5%EC%95%84%EC%9D%BC%EB%9E%9C%EB%93%9C%ED%8C%8C%ED%81%AC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%97%AC%EC%9D%98%EB%8F%84%EB%8D%94%EC%83%B5%EC%95%84%EC%9D%BC%EB%9E%9C%EB%93%9C%ED%8C%8C%ED%81%AC" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>124,000</td>
+      <td>101,000</td>
+      <td>65,000</td>
+      <td>36,000</td>
+      <td>64.0%</td>
+      <td>18.0%</td>
+      <td>528</td>
+      <td>2,006</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 명일동 332</td>
+      <td>강동구</td>
+      <td>명일지에스 (<a href="https://hogangnono.com/search?q=%EB%AA%85%EC%9D%BC%EC%A7%80%EC%97%90%EC%8A%A4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%AA%85%EC%9D%BC%EC%A7%80%EC%97%90%EC%8A%A4" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>115,000</td>
+      <td>90,000</td>
+      <td>57,000</td>
+      <td>33,000</td>
+      <td>63.0%</td>
+      <td>21.0%</td>
+      <td>772</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 장안동 354-2</td>
+      <td>동대문구</td>
+      <td>장안래미안1차 (<a href="https://hogangnono.com/search?q=%EC%9E%A5%EC%95%88%EB%9E%98%EB%AF%B8%EC%95%881%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9E%A5%EC%95%88%EB%9E%98%EB%AF%B8%EC%95%881%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>118,000</td>
+      <td>95,000</td>
+      <td>60,000</td>
+      <td>35,000</td>
+      <td>63.0%</td>
+      <td>19.0%</td>
+      <td>558</td>
+      <td>2,003</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 상도동 906</td>
+      <td>동작구</td>
+      <td>상도푸르지오클라베뉴 (<a href="https://hogangnono.com/search?q=%EC%83%81%EB%8F%84%ED%91%B8%EB%A5%B4%EC%A7%80%EC%98%A4%ED%81%B4%EB%9D%BC%EB%B2%A0%EB%89%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%83%81%EB%8F%84%ED%91%B8%EB%A5%B4%EC%A7%80%EC%98%A4%ED%81%B4%EB%9D%BC%EB%B2%A0%EB%89%B4" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>103,000</td>
+      <td>100,021</td>
+      <td>63,000</td>
+      <td>37,021</td>
+      <td>63.0%</td>
+      <td>2.0%</td>
+      <td>771</td>
+      <td>2,024</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 463</td>
+      <td>서대문구</td>
+      <td>문화촌현대 (<a href="https://hogangnono.com/search?q=%EB%AC%B8%ED%99%94%EC%B4%8C%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%AC%B8%ED%99%94%EC%B4%8C%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>86,600</td>
+      <td>79,500</td>
+      <td>50,000</td>
+      <td>29,500</td>
+      <td>63.0%</td>
+      <td>8.0%</td>
+      <td>768</td>
+      <td>2,002</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 제기동 153</td>
+      <td>동대문구</td>
+      <td>안암골벽산 (<a href="https://hogangnono.com/search?q=%EC%95%88%EC%95%94%EA%B3%A8%EB%B2%BD%EC%82%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%95%88%EC%95%94%EA%B3%A8%EB%B2%BD%EC%82%B0" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>97,000</td>
+      <td>82,750</td>
+      <td>52,500</td>
+      <td>30,250</td>
+      <td>63.0%</td>
+      <td>14.0%</td>
+      <td>640</td>
+      <td>2,003</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 상도동 414</td>
+      <td>동작구</td>
+      <td>건영 (<a href="https://hogangnono.com/search?q=%EA%B1%B4%EC%98%81" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B1%B4%EC%98%81" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>117,500</td>
+      <td>102,500</td>
+      <td>65,000</td>
+      <td>37,500</td>
+      <td>63.0%</td>
+      <td>12.0%</td>
+      <td>1,376</td>
+      <td>1,997</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 성산동 601</td>
+      <td>마포구</td>
+      <td>성산월드타운대림 (<a href="https://hogangnono.com/search?q=%EC%84%B1%EC%82%B0%EC%9B%94%EB%93%9C%ED%83%80%EC%9A%B4%EB%8C%80%EB%A6%BC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%84%B1%EC%82%B0%EC%9B%94%EB%93%9C%ED%83%80%EC%9A%B4%EB%8C%80%EB%A6%BC" target="_blank">네이버부동산</a>)</td>
+      <td>35</td>
+      <td>110,000</td>
+      <td>98,000</td>
+      <td>61,000</td>
+      <td>37,000</td>
+      <td>62.0%</td>
+      <td>10.0%</td>
+      <td>795</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 양평동3가 90-1</td>
+      <td>영등포구</td>
+      <td>거성파스텔 (<a href="https://hogangnono.com/search?q=%EA%B1%B0%EC%84%B1%ED%8C%8C%EC%8A%A4%ED%85%94" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B1%B0%EC%84%B1%ED%8C%8C%EC%8A%A4%ED%85%94" target="_blank">네이버부동산</a>)</td>
+      <td>28</td>
+      <td>90,800</td>
+      <td>90,400</td>
+      <td>56,000</td>
+      <td>34,400</td>
+      <td>62.0%</td>
+      <td>0.0%</td>
+      <td>532</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 종로구 창신동 703</td>
+      <td>종로구</td>
+      <td>창신쌍용2단지 (<a href="https://hogangnono.com/search?q=%EC%B0%BD%EC%8B%A0%EC%8C%8D%EC%9A%A92%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B0%BD%EC%8B%A0%EC%8C%8D%EC%9A%A92%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>76,500</td>
+      <td>60,833</td>
+      <td>38,000</td>
+      <td>22,833</td>
+      <td>62.0%</td>
+      <td>20.0%</td>
+      <td>919</td>
+      <td>1,993</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 459</td>
+      <td>서대문구</td>
+      <td>홍제원현대 (<a href="https://hogangnono.com/search?q=%ED%99%8D%EC%A0%9C%EC%9B%90%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%99%8D%EC%A0%9C%EC%9B%90%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>115,000</td>
+      <td>93,000</td>
+      <td>57,750</td>
+      <td>35,250</td>
+      <td>62.0%</td>
+      <td>19.0%</td>
+      <td>939</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 영천동 100</td>
+      <td>서대문구</td>
+      <td>독립문삼호 (<a href="https://hogangnono.com/search?q=%EB%8F%85%EB%A6%BD%EB%AC%B8%EC%82%BC%ED%98%B8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%85%EB%A6%BD%EB%AC%B8%EC%82%BC%ED%98%B8" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>121,500</td>
+      <td>102,000</td>
+      <td>63,000</td>
+      <td>39,000</td>
+      <td>62.0%</td>
+      <td>16.0%</td>
+      <td>895</td>
+      <td>1,995</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 상도동 408</td>
+      <td>동작구</td>
+      <td>상도삼호 (<a href="https://hogangnono.com/search?q=%EC%83%81%EB%8F%84%EC%82%BC%ED%98%B8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%83%81%EB%8F%84%EC%82%BC%ED%98%B8" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>99,500</td>
+      <td>84,733</td>
+      <td>52,250</td>
+      <td>32,483</td>
+      <td>62.0%</td>
+      <td>14.0%</td>
+      <td>682</td>
+      <td>1,994</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 북가좌동 481</td>
+      <td>서대문구</td>
+      <td>DMC래미안e편한세상 (<a href="https://hogangnono.com/search?q=DMC%EB%9E%98%EB%AF%B8%EC%95%88e%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=DMC%EB%9E%98%EB%AF%B8%EC%95%88e%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>115,000</td>
+      <td>105,250</td>
+      <td>64,000</td>
+      <td>41,250</td>
+      <td>61.0%</td>
+      <td>8.0%</td>
+      <td>3,293</td>
+      <td>2,012</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 장안동 329-2</td>
+      <td>동대문구</td>
+      <td>장안힐스테이트 (<a href="https://hogangnono.com/search?q=%EC%9E%A5%EC%95%88%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9E%A5%EC%95%88%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8" target="_blank">네이버부동산</a>)</td>
+      <td>23</td>
+      <td>95,000</td>
+      <td>85,350</td>
+      <td>52,000</td>
+      <td>33,350</td>
+      <td>61.0%</td>
+      <td>10.0%</td>
+      <td>859</td>
+      <td>2,007</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 답십리동 42</td>
+      <td>동대문구</td>
+      <td>동답한신 (<a href="https://hogangnono.com/search?q=%EB%8F%99%EB%8B%B5%ED%95%9C%EC%8B%A0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%99%EB%8B%B5%ED%95%9C%EC%8B%A0" target="_blank">네이버부동산</a>)</td>
+      <td>23</td>
+      <td>77,000</td>
+      <td>57,500</td>
+      <td>35,000</td>
+      <td>22,500</td>
+      <td>61.0%</td>
+      <td>25.0%</td>
+      <td>600</td>
+      <td>1,992</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 전농동 6</td>
+      <td>동대문구</td>
+      <td>전농우성 (<a href="https://hogangnono.com/search?q=%EC%A0%84%EB%86%8D%EC%9A%B0%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%A0%84%EB%86%8D%EC%9A%B0%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>76,500</td>
+      <td>60,750</td>
+      <td>37,000</td>
+      <td>23,750</td>
+      <td>61.0%</td>
+      <td>20.0%</td>
+      <td>1,234</td>
+      <td>1,992</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 용두동 796</td>
+      <td>동대문구</td>
+      <td>래미안엘리니티 (<a href="https://hogangnono.com/search?q=%EB%9E%98%EB%AF%B8%EC%95%88%EC%97%98%EB%A6%AC%EB%8B%88%ED%8B%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%9E%98%EB%AF%B8%EC%95%88%EC%97%98%EB%A6%AC%EB%8B%88%ED%8B%B0" target="_blank">네이버부동산</a>)</td>
+      <td>21</td>
+      <td>106,800</td>
+      <td>106,500</td>
+      <td>65,000</td>
+      <td>41,500</td>
+      <td>61.0%</td>
+      <td>0.0%</td>
+      <td>1,048</td>
+      <td>2,022</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 이문동 311</td>
+      <td>동대문구</td>
+      <td>래미안이문2차 (<a href="https://hogangnono.com/search?q=%EB%9E%98%EB%AF%B8%EC%95%88%EC%9D%B4%EB%AC%B82%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%9E%98%EB%AF%B8%EC%95%88%EC%9D%B4%EB%AC%B82%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>23</td>
+      <td>92,000</td>
+      <td>81,000</td>
+      <td>49,000</td>
+      <td>32,000</td>
+      <td>60.0%</td>
+      <td>11.0%</td>
+      <td>648</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 목동 956</td>
+      <td>양천구</td>
+      <td>목동롯데캐슬위너 (<a href="https://hogangnono.com/search?q=%EB%AA%A9%EB%8F%99%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC%EC%9C%84%EB%84%88" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%AA%A9%EB%8F%99%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC%EC%9C%84%EB%84%88" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>110,000</td>
+      <td>99,750</td>
+      <td>59,500</td>
+      <td>40,250</td>
+      <td>60.0%</td>
+      <td>9.0%</td>
+      <td>1,067</td>
+      <td>2,005</td>
+    </tr>
+    <tr>
+      <td>서울특별시 종로구 무악동 60</td>
+      <td>종로구</td>
+      <td>인왕산아이파크1차 (<a href="https://hogangnono.com/search?q=%EC%9D%B8%EC%99%95%EC%82%B0%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC1%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9D%B8%EC%99%95%EC%82%B0%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC1%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>115,000</td>
+      <td>103,000</td>
+      <td>62,000</td>
+      <td>41,000</td>
+      <td>60.0%</td>
+      <td>10.0%</td>
+      <td>810</td>
+      <td>2,008</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 이문동 54</td>
+      <td>동대문구</td>
+      <td>이문현대 (<a href="https://hogangnono.com/search?q=%EC%9D%B4%EB%AC%B8%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9D%B4%EB%AC%B8%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>77,000</td>
+      <td>63,225</td>
+      <td>38,000</td>
+      <td>25,225</td>
+      <td>60.0%</td>
+      <td>17.0%</td>
+      <td>601</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 천연동 145</td>
+      <td>서대문구</td>
+      <td>천연뜨란채 (<a href="https://hogangnono.com/search?q=%EC%B2%9C%EC%97%B0%EB%9C%A8%EB%9E%80%EC%B1%84" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B2%9C%EC%97%B0%EB%9C%A8%EB%9E%80%EC%B1%84" target="_blank">네이버부동산</a>)</td>
+      <td>23</td>
+      <td>98,000</td>
+      <td>84,167</td>
+      <td>50,400</td>
+      <td>33,767</td>
+      <td>60.0%</td>
+      <td>14.0%</td>
+      <td>1,008</td>
+      <td>2,006</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 사당동 1133</td>
+      <td>동작구</td>
+      <td>동작삼성래미안 (<a href="https://hogangnono.com/search?q=%EB%8F%99%EC%9E%91%EC%82%BC%EC%84%B1%EB%9E%98%EB%AF%B8%EC%95%88" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%99%EC%9E%91%EC%82%BC%EC%84%B1%EB%9E%98%EB%AF%B8%EC%95%88" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>119,000</td>
+      <td>103,000</td>
+      <td>62,000</td>
+      <td>41,000</td>
+      <td>60.0%</td>
+      <td>13.0%</td>
+      <td>896</td>
+      <td>2,003</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 1324</td>
+      <td>양천구</td>
+      <td>신정숲속마을 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EC%A0%95%EC%88%B2%EC%86%8D%EB%A7%88%EC%9D%84" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EC%A0%95%EC%88%B2%EC%86%8D%EB%A7%88%EC%9D%84" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>76,000</td>
+      <td>73,700</td>
+      <td>44,500</td>
+      <td>29,200</td>
+      <td>60.0%</td>
+      <td>3.0%</td>
+      <td>560</td>
+      <td>2,016</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 고덕동 486</td>
+      <td>강동구</td>
+      <td>아남 (<a href="https://hogangnono.com/search?q=%EC%95%84%EB%82%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%95%84%EB%82%A8" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>116,000</td>
+      <td>85,000</td>
+      <td>50,000</td>
+      <td>35,000</td>
+      <td>59.0%</td>
+      <td>26.0%</td>
+      <td>807</td>
+      <td>1,996</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 양평동5가 76</td>
+      <td>영등포구</td>
+      <td>양평동한신 (<a href="https://hogangnono.com/search?q=%EC%96%91%ED%8F%89%EB%8F%99%ED%95%9C%EC%8B%A0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%96%91%ED%8F%89%EB%8F%99%ED%95%9C%EC%8B%A0" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>97,000</td>
+      <td>89,250</td>
+      <td>53,000</td>
+      <td>36,250</td>
+      <td>59.0%</td>
+      <td>7.0%</td>
+      <td>1,215</td>
+      <td>1,996</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 휘경동 57</td>
+      <td>동대문구</td>
+      <td>주공1단지 (<a href="https://hogangnono.com/search?q=%EC%A3%BC%EA%B3%B51%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%A3%BC%EA%B3%B51%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>93,000</td>
+      <td>79,167</td>
+      <td>46,440</td>
+      <td>32,727</td>
+      <td>59.0%</td>
+      <td>14.0%</td>
+      <td>1,224</td>
+      <td>2,001</td>
+    </tr>
+    <tr>
+      <td>서울특별시 중구 황학동 2545</td>
+      <td>중구</td>
+      <td>롯데캐슬베네치아 (<a href="https://hogangnono.com/search?q=%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC%EB%B2%A0%EB%84%A4%EC%B9%98%EC%95%84" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC%EB%B2%A0%EB%84%A4%EC%B9%98%EC%95%84" target="_blank">네이버부동산</a>)</td>
+      <td>34</td>
+      <td>333,077</td>
+      <td>101,000</td>
+      <td>59,750</td>
+      <td>41,250</td>
+      <td>59.0%</td>
+      <td>69.0%</td>
+      <td>1,870</td>
+      <td>2,008</td>
+    </tr>
+    <tr>
+      <td>서울특별시 성동구 하왕십리동 1058</td>
+      <td>성동구</td>
+      <td>하왕십리극동미라주 (<a href="https://hogangnono.com/search?q=%ED%95%98%EC%99%95%EC%8B%AD%EB%A6%AC%EA%B7%B9%EB%8F%99%EB%AF%B8%EB%9D%BC%EC%A3%BC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%95%98%EC%99%95%EC%8B%AD%EB%A6%AC%EA%B7%B9%EB%8F%99%EB%AF%B8%EB%9D%BC%EC%A3%BC" target="_blank">네이버부동산</a>)</td>
+      <td>27</td>
+      <td>89,000</td>
+      <td>84,800</td>
+      <td>50,000</td>
+      <td>34,800</td>
+      <td>59.0%</td>
+      <td>4.0%</td>
+      <td>605</td>
+      <td>2,001</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 영등포동8가 76-1</td>
+      <td>영등포구</td>
+      <td>영등포삼환 (<a href="https://hogangnono.com/search?q=%EC%98%81%EB%93%B1%ED%8F%AC%EC%82%BC%ED%99%98" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%98%81%EB%93%B1%ED%8F%AC%EC%82%BC%ED%99%98" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>109,000</td>
+      <td>96,750</td>
+      <td>57,500</td>
+      <td>39,250</td>
+      <td>59.0%</td>
+      <td>11.0%</td>
+      <td>520</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 남가좌동 376</td>
+      <td>서대문구</td>
+      <td>남가좌현대 (<a href="https://hogangnono.com/search?q=%EB%82%A8%EA%B0%80%EC%A2%8C%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%82%A8%EA%B0%80%EC%A2%8C%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>87,000</td>
+      <td>73,000</td>
+      <td>43,333</td>
+      <td>29,667</td>
+      <td>59.0%</td>
+      <td>16.0%</td>
+      <td>1,155</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 노량진동 323</td>
+      <td>동작구</td>
+      <td>우성 (<a href="https://hogangnono.com/search?q=%EC%9A%B0%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9A%B0%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>125,000</td>
+      <td>104,000</td>
+      <td>60,000</td>
+      <td>44,000</td>
+      <td>58.0%</td>
+      <td>16.0%</td>
+      <td>901</td>
+      <td>1,997</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 신대방동 707</td>
+      <td>동작구</td>
+      <td>현대 (<a href="https://hogangnono.com/search?q=%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>117,000</td>
+      <td>90,125</td>
+      <td>52,550</td>
+      <td>37,575</td>
+      <td>58.0%</td>
+      <td>22.0%</td>
+      <td>880</td>
+      <td>1,996</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 휘경동 57</td>
+      <td>동대문구</td>
+      <td>주공2단지 (<a href="https://hogangnono.com/search?q=%EC%A3%BC%EA%B3%B52%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%A3%BC%EA%B3%B52%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>80,000</td>
+      <td>67,500</td>
+      <td>39,000</td>
+      <td>28,500</td>
+      <td>58.0%</td>
+      <td>15.0%</td>
+      <td>800</td>
+      <td>2,001</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 남가좌동 389</td>
+      <td>서대문구</td>
+      <td>DMC에코자이 (<a href="https://hogangnono.com/search?q=DMC%EC%97%90%EC%BD%94%EC%9E%90%EC%9D%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=DMC%EC%97%90%EC%BD%94%EC%9E%90%EC%9D%B4" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>116,000</td>
+      <td>105,500</td>
+      <td>61,500</td>
+      <td>44,000</td>
+      <td>58.0%</td>
+      <td>9.0%</td>
+      <td>1,047</td>
+      <td>2,019</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 연희동 739</td>
+      <td>서대문구</td>
+      <td>연희대우 (<a href="https://hogangnono.com/search?q=%EC%97%B0%ED%9D%AC%EB%8C%80%EC%9A%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%97%B0%ED%9D%AC%EB%8C%80%EC%9A%B0" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>91,700</td>
+      <td>79,000</td>
+      <td>46,000</td>
+      <td>33,000</td>
+      <td>58.0%</td>
+      <td>13.0%</td>
+      <td>562</td>
+      <td>2,002</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 473</td>
+      <td>서대문구</td>
+      <td>홍제센트럴아이파크 (<a href="https://hogangnono.com/search?q=%ED%99%8D%EC%A0%9C%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%99%8D%EC%A0%9C%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>130,000</td>
+      <td>104,700</td>
+      <td>61,000</td>
+      <td>43,700</td>
+      <td>58.0%</td>
+      <td>19.0%</td>
+      <td>906</td>
+      <td>2,020</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 337</td>
+      <td>양천구</td>
+      <td>목동2차우성 (<a href="https://hogangnono.com/search?q=%EB%AA%A9%EB%8F%992%EC%B0%A8%EC%9A%B0%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%AA%A9%EB%8F%992%EC%B0%A8%EC%9A%B0%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>122,000</td>
+      <td>90,000</td>
+      <td>52,000</td>
+      <td>38,000</td>
+      <td>58.0%</td>
+      <td>26.0%</td>
+      <td>1,140</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 천호동 528</td>
+      <td>강동구</td>
+      <td>천호삼성 (<a href="https://hogangnono.com/search?q=%EC%B2%9C%ED%98%B8%EC%82%BC%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B2%9C%ED%98%B8%EC%82%BC%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>88,000</td>
+      <td>76,000</td>
+      <td>44,000</td>
+      <td>32,000</td>
+      <td>58.0%</td>
+      <td>13.0%</td>
+      <td>643</td>
+      <td>1,997</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 장안동 329-3</td>
+      <td>동대문구</td>
+      <td>래미안장안2차 (<a href="https://hogangnono.com/search?q=%EB%9E%98%EB%AF%B8%EC%95%88%EC%9E%A5%EC%95%882%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%9E%98%EB%AF%B8%EC%95%88%EC%9E%A5%EC%95%882%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>30</td>
+      <td>115,000</td>
+      <td>94,000</td>
+      <td>54,158</td>
+      <td>39,842</td>
+      <td>58.0%</td>
+      <td>18.0%</td>
+      <td>1,786</td>
+      <td>2,007</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 남가좌동 390</td>
+      <td>서대문구</td>
+      <td>래미안루센티아 (<a href="https://hogangnono.com/search?q=%EB%9E%98%EB%AF%B8%EC%95%88%EB%A3%A8%EC%84%BC%ED%8B%B0%EC%95%84" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%9E%98%EB%AF%B8%EC%95%88%EB%A3%A8%EC%84%BC%ED%8B%B0%EC%95%84" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>122,000</td>
+      <td>108,000</td>
+      <td>63,000</td>
+      <td>45,000</td>
+      <td>58.0%</td>
+      <td>11.0%</td>
+      <td>997</td>
+      <td>2,020</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 당산동4가 88</td>
+      <td>영등포구</td>
+      <td>현대3차 (<a href="https://hogangnono.com/search?q=%ED%98%84%EB%8C%803%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%98%84%EB%8C%803%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>105,000</td>
+      <td>91,500</td>
+      <td>52,000</td>
+      <td>39,500</td>
+      <td>57.0%</td>
+      <td>12.0%</td>
+      <td>509</td>
+      <td>1,988</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 신대방동 719</td>
+      <td>동작구</td>
+      <td>동작상떼빌 (<a href="https://hogangnono.com/search?q=%EB%8F%99%EC%9E%91%EC%83%81%EB%96%BC%EB%B9%8C" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%99%EC%9E%91%EC%83%81%EB%96%BC%EB%B9%8C" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>108,500</td>
+      <td>93,000</td>
+      <td>53,000</td>
+      <td>40,000</td>
+      <td>57.0%</td>
+      <td>14.0%</td>
+      <td>545</td>
+      <td>2,006</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 천호동 566</td>
+      <td>강동구</td>
+      <td>천호태영 (<a href="https://hogangnono.com/search?q=%EC%B2%9C%ED%98%B8%ED%83%9C%EC%98%81" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B2%9C%ED%98%B8%ED%83%9C%EC%98%81" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>105,000</td>
+      <td>87,500</td>
+      <td>50,000</td>
+      <td>37,500</td>
+      <td>57.0%</td>
+      <td>16.0%</td>
+      <td>649</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 1311</td>
+      <td>양천구</td>
+      <td>동일하이빌2단지 (<a href="https://hogangnono.com/search?q=%EB%8F%99%EC%9D%BC%ED%95%98%EC%9D%B4%EB%B9%8C2%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%99%EC%9D%BC%ED%95%98%EC%9D%B4%EB%B9%8C2%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>113,500</td>
+      <td>96,000</td>
+      <td>55,000</td>
+      <td>41,000</td>
+      <td>57.0%</td>
+      <td>15.0%</td>
+      <td>532</td>
+      <td>2,005</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 상도동 450</td>
+      <td>동작구</td>
+      <td>상도래미안1차 (<a href="https://hogangnono.com/search?q=%EC%83%81%EB%8F%84%EB%9E%98%EB%AF%B8%EC%95%881%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%83%81%EB%8F%84%EB%9E%98%EB%AF%B8%EC%95%881%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>28</td>
+      <td>109,000</td>
+      <td>102,500</td>
+      <td>58,000</td>
+      <td>44,500</td>
+      <td>57.0%</td>
+      <td>5.0%</td>
+      <td>517</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 청량리동 60</td>
+      <td>동대문구</td>
+      <td>한신 (<a href="https://hogangnono.com/search?q=%ED%95%9C%EC%8B%A0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%95%9C%EC%8B%A0" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>109,500</td>
+      <td>82,000</td>
+      <td>46,500</td>
+      <td>35,500</td>
+      <td>57.0%</td>
+      <td>25.0%</td>
+      <td>960</td>
+      <td>1,997</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 전농동 688</td>
+      <td>동대문구</td>
+      <td>래미안아름숲 (<a href="https://hogangnono.com/search?q=%EB%9E%98%EB%AF%B8%EC%95%88%EC%95%84%EB%A6%84%EC%88%B2" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%9E%98%EB%AF%B8%EC%95%88%EC%95%84%EB%A6%84%EC%88%B2" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>130,000</td>
+      <td>103,000</td>
+      <td>57,850</td>
+      <td>45,150</td>
+      <td>56.0%</td>
+      <td>20.0%</td>
+      <td>867</td>
+      <td>2,012</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 장안동 336</td>
+      <td>동대문구</td>
+      <td>장안현대홈타운1차 (<a href="https://hogangnono.com/search?q=%EC%9E%A5%EC%95%88%ED%98%84%EB%8C%80%ED%99%88%ED%83%80%EC%9A%B41%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9E%A5%EC%95%88%ED%98%84%EB%8C%80%ED%99%88%ED%83%80%EC%9A%B41%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>115,000</td>
+      <td>93,500</td>
+      <td>51,917</td>
+      <td>41,583</td>
+      <td>56.0%</td>
+      <td>18.0%</td>
+      <td>2,182</td>
+      <td>2,003</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 답십리동 80</td>
+      <td>동대문구</td>
+      <td>답십리청솔우성1차 (<a href="https://hogangnono.com/search?q=%EB%8B%B5%EC%8B%AD%EB%A6%AC%EC%B2%AD%EC%86%94%EC%9A%B0%EC%84%B11%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8B%B5%EC%8B%AD%EB%A6%AC%EC%B2%AD%EC%86%94%EC%9A%B0%EC%84%B11%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>104,000</td>
+      <td>81,000</td>
+      <td>45,000</td>
+      <td>36,000</td>
+      <td>56.0%</td>
+      <td>22.0%</td>
+      <td>1,542</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 답십리동 998</td>
+      <td>동대문구</td>
+      <td>답십리두산위브 (<a href="https://hogangnono.com/search?q=%EB%8B%B5%EC%8B%AD%EB%A6%AC%EB%91%90%EC%82%B0%EC%9C%84%EB%B8%8C" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8B%B5%EC%8B%AD%EB%A6%AC%EB%91%90%EC%82%B0%EC%9C%84%EB%B8%8C" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>125,000</td>
+      <td>106,500</td>
+      <td>59,500</td>
+      <td>47,000</td>
+      <td>56.0%</td>
+      <td>14.0%</td>
+      <td>516</td>
+      <td>2,007</td>
+    </tr>
+    <tr>
+      <td>서울특별시 중구 신당동 843</td>
+      <td>중구</td>
+      <td>신당동삼성 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EB%8B%B9%EB%8F%99%EC%82%BC%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EB%8B%B9%EB%8F%99%EC%82%BC%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>110,000</td>
+      <td>96,750</td>
+      <td>54,000</td>
+      <td>42,750</td>
+      <td>56.0%</td>
+      <td>12.0%</td>
+      <td>1,434</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신월동 1063</td>
+      <td>양천구</td>
+      <td>신정뉴타운롯데캐슬 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EC%A0%95%EB%89%B4%ED%83%80%EC%9A%B4%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EC%A0%95%EB%89%B4%ED%83%80%EC%9A%B4%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC" target="_blank">네이버부동산</a>)</td>
+      <td>34</td>
+      <td>121,000</td>
+      <td>97,900</td>
+      <td>54,358</td>
+      <td>43,542</td>
+      <td>56.0%</td>
+      <td>19.0%</td>
+      <td>930</td>
+      <td>2,014</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 상도동 415</td>
+      <td>동작구</td>
+      <td>상도중앙하이츠빌 (<a href="https://hogangnono.com/search?q=%EC%83%81%EB%8F%84%EC%A4%91%EC%95%99%ED%95%98%EC%9D%B4%EC%B8%A0%EB%B9%8C" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%83%81%EB%8F%84%EC%A4%91%EC%95%99%ED%95%98%EC%9D%B4%EC%B8%A0%EB%B9%8C" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>122,000</td>
+      <td>107,000</td>
+      <td>60,000</td>
+      <td>47,000</td>
+      <td>56.0%</td>
+      <td>12.0%</td>
+      <td>544</td>
+      <td>2,003</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 사당동 1139</td>
+      <td>동작구</td>
+      <td>사당자이 (<a href="https://hogangnono.com/search?q=%EC%82%AC%EB%8B%B9%EC%9E%90%EC%9D%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%82%AC%EB%8B%B9%EC%9E%90%EC%9D%B4" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>93,000</td>
+      <td>83,600</td>
+      <td>47,000</td>
+      <td>36,600</td>
+      <td>56.0%</td>
+      <td>10.0%</td>
+      <td>719</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 성동구 하왕십리동 258</td>
+      <td>성동구</td>
+      <td>청계벽산 (<a href="https://hogangnono.com/search?q=%EC%B2%AD%EA%B3%84%EB%B2%BD%EC%82%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B2%AD%EA%B3%84%EB%B2%BD%EC%82%B0" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>112,000</td>
+      <td>97,000</td>
+      <td>54,000</td>
+      <td>43,000</td>
+      <td>56.0%</td>
+      <td>13.0%</td>
+      <td>1,332</td>
+      <td>1,996</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 453</td>
+      <td>서대문구</td>
+      <td>청구1차 (<a href="https://hogangnono.com/search?q=%EC%B2%AD%EA%B5%AC1%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B2%AD%EA%B5%AC1%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>111,000</td>
+      <td>86,000</td>
+      <td>48,050</td>
+      <td>37,950</td>
+      <td>56.0%</td>
+      <td>22.0%</td>
+      <td>862</td>
+      <td>1,994</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 1259</td>
+      <td>양천구</td>
+      <td>신트리1단지 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%ED%8A%B8%EB%A6%AC1%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%ED%8A%B8%EB%A6%AC1%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>21</td>
+      <td>79,000</td>
+      <td>62,133</td>
+      <td>34,875</td>
+      <td>27,258</td>
+      <td>56.0%</td>
+      <td>21.0%</td>
+      <td>997</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍은동 464</td>
+      <td>서대문구</td>
+      <td>북한산더샵 (<a href="https://hogangnono.com/search?q=%EB%B6%81%ED%95%9C%EC%82%B0%EB%8D%94%EC%83%B5" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%B6%81%ED%95%9C%EC%82%B0%EB%8D%94%EC%83%B5" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>131,500</td>
+      <td>119,400</td>
+      <td>67,500</td>
+      <td>51,900</td>
+      <td>56.0%</td>
+      <td>9.0%</td>
+      <td>552</td>
+      <td>2,017</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신월동 1075</td>
+      <td>양천구</td>
+      <td>목동센트럴아이파크위브 (<a href="https://hogangnono.com/search?q=%EB%AA%A9%EB%8F%99%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC%EC%9C%84%EB%B8%8C" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%AA%A9%EB%8F%99%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC%EC%9C%84%EB%B8%8C" target="_blank">네이버부동산</a>)</td>
+      <td>23</td>
+      <td>91,000</td>
+      <td>78,367</td>
+      <td>44,000</td>
+      <td>34,367</td>
+      <td>56.0%</td>
+      <td>13.0%</td>
+      <td>3,045</td>
+      <td>2,020</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 상일동 521</td>
+      <td>강동구</td>
+      <td>고덕자이 (<a href="https://hogangnono.com/search?q=%EA%B3%A0%EB%8D%95%EC%9E%90%EC%9D%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B3%A0%EB%8D%95%EC%9E%90%EC%9D%B4" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>90,000</td>
+      <td>90,000</td>
+      <td>50,000</td>
+      <td>40,000</td>
+      <td>56.0%</td>
+      <td>0.0%</td>
+      <td>1,824</td>
+      <td>2,021</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 천호동 217-132</td>
+      <td>강동구</td>
+      <td>동아하이빌 (<a href="https://hogangnono.com/search?q=%EB%8F%99%EC%95%84%ED%95%98%EC%9D%B4%EB%B9%8C" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%99%EC%95%84%ED%95%98%EC%9D%B4%EB%B9%8C" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>102,500</td>
+      <td>81,500</td>
+      <td>46,000</td>
+      <td>35,500</td>
+      <td>56.0%</td>
+      <td>20.0%</td>
+      <td>526</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 대현동 144</td>
+      <td>서대문구</td>
+      <td>신촌럭키 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EC%B4%8C%EB%9F%AD%ED%82%A4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EC%B4%8C%EB%9F%AD%ED%82%A4" target="_blank">네이버부동산</a>)</td>
+      <td>30</td>
+      <td>128,000</td>
+      <td>100,750</td>
+      <td>54,985</td>
+      <td>45,765</td>
+      <td>55.0%</td>
+      <td>21.0%</td>
+      <td>855</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 사당동 105</td>
+      <td>동작구</td>
+      <td>극동 (<a href="https://hogangnono.com/search?q=%EA%B7%B9%EB%8F%99" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B7%B9%EB%8F%99" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>114,000</td>
+      <td>99,500</td>
+      <td>55,000</td>
+      <td>44,500</td>
+      <td>55.0%</td>
+      <td>12.0%</td>
+      <td>1,550</td>
+      <td>1,993</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 당산동2가 16-1</td>
+      <td>영등포구</td>
+      <td>대우 (<a href="https://hogangnono.com/search?q=%EB%8C%80%EC%9A%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8C%80%EC%9A%B0" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>62,700</td>
+      <td>57,000</td>
+      <td>31,500</td>
+      <td>25,500</td>
+      <td>55.0%</td>
+      <td>9.0%</td>
+      <td>536</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 북가좌동 449</td>
+      <td>서대문구</td>
+      <td>북가좌삼호 (<a href="https://hogangnono.com/search?q=%EB%B6%81%EA%B0%80%EC%A2%8C%EC%82%BC%ED%98%B8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%B6%81%EA%B0%80%EC%A2%8C%EC%82%BC%ED%98%B8" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>97,500</td>
+      <td>78,000</td>
+      <td>43,050</td>
+      <td>34,950</td>
+      <td>55.0%</td>
+      <td>19.0%</td>
+      <td>616</td>
+      <td>1,996</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 454</td>
+      <td>서대문구</td>
+      <td>유원하나 (<a href="https://hogangnono.com/search?q=%EC%9C%A0%EC%9B%90%ED%95%98%EB%82%98" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9C%A0%EC%9B%90%ED%95%98%EB%82%98" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>65,000</td>
+      <td>57,400</td>
+      <td>31,500</td>
+      <td>25,900</td>
+      <td>55.0%</td>
+      <td>11.0%</td>
+      <td>704</td>
+      <td>1,996</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 제기동 1212</td>
+      <td>동대문구</td>
+      <td>한신 (<a href="https://hogangnono.com/search?q=%ED%95%9C%EC%8B%A0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%95%9C%EC%8B%A0" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>85,000</td>
+      <td>73,000</td>
+      <td>39,500</td>
+      <td>33,500</td>
+      <td>54.0%</td>
+      <td>14.0%</td>
+      <td>1,070</td>
+      <td>2,004</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 남가좌동 379</td>
+      <td>서대문구</td>
+      <td>래미안남가좌2차 (<a href="https://hogangnono.com/search?q=%EB%9E%98%EB%AF%B8%EC%95%88%EB%82%A8%EA%B0%80%EC%A2%8C2%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%9E%98%EB%AF%B8%EC%95%88%EB%82%A8%EA%B0%80%EC%A2%8C2%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>111,000</td>
+      <td>93,500</td>
+      <td>50,000</td>
+      <td>43,500</td>
+      <td>54.0%</td>
+      <td>15.0%</td>
+      <td>503</td>
+      <td>2,005</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 북가좌동 431</td>
+      <td>서대문구</td>
+      <td>DMC한양 (<a href="https://hogangnono.com/search?q=DMC%ED%95%9C%EC%96%91" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=DMC%ED%95%9C%EC%96%91" target="_blank">네이버부동산</a>)</td>
+      <td>34</td>
+      <td>96,000</td>
+      <td>81,000</td>
+      <td>44,000</td>
+      <td>37,000</td>
+      <td>54.0%</td>
+      <td>15.0%</td>
+      <td>660</td>
+      <td>1,987</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 강일동 114</td>
+      <td>강동구</td>
+      <td>강동리버스트4단지 (<a href="https://hogangnono.com/search?q=%EA%B0%95%EB%8F%99%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%8A%B84%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B0%95%EB%8F%99%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%8A%B84%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>75,000</td>
+      <td>74,033</td>
+      <td>39,875</td>
+      <td>34,158</td>
+      <td>54.0%</td>
+      <td>1.0%</td>
+      <td>1,239</td>
+      <td>2,020</td>
+    </tr>
+    <tr>
+      <td>서울특별시 종로구 창신동 232</td>
+      <td>종로구</td>
+      <td>두산 (<a href="https://hogangnono.com/search?q=%EB%91%90%EC%82%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%91%90%EC%82%B0" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>90,000</td>
+      <td>83,000</td>
+      <td>44,750</td>
+      <td>38,250</td>
+      <td>54.0%</td>
+      <td>7.0%</td>
+      <td>529</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 강일동 684</td>
+      <td>강동구</td>
+      <td>강일리버파크6단지 (<a href="https://hogangnono.com/search?q=%EA%B0%95%EC%9D%BC%EB%A6%AC%EB%B2%84%ED%8C%8C%ED%81%AC6%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B0%95%EC%9D%BC%EB%A6%AC%EB%B2%84%ED%8C%8C%ED%81%AC6%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>115,000</td>
+      <td>96,900</td>
+      <td>52,500</td>
+      <td>44,400</td>
+      <td>54.0%</td>
+      <td>15.0%</td>
+      <td>553</td>
+      <td>2,009</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 1277</td>
+      <td>양천구</td>
+      <td>신트리4단지 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%ED%8A%B8%EB%A6%AC4%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%ED%8A%B8%EB%A6%AC4%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>72,000</td>
+      <td>57,000</td>
+      <td>30,667</td>
+      <td>26,333</td>
+      <td>54.0%</td>
+      <td>20.0%</td>
+      <td>845</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 전농동 10</td>
+      <td>동대문구</td>
+      <td>전농SK1차 (<a href="https://hogangnono.com/search?q=%EC%A0%84%EB%86%8DSK1%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%A0%84%EB%86%8DSK1%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>110,000</td>
+      <td>88,250</td>
+      <td>47,500</td>
+      <td>40,750</td>
+      <td>54.0%</td>
+      <td>19.0%</td>
+      <td>1,830</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 상암동 1752</td>
+      <td>마포구</td>
+      <td>상암월드컵파크9단지 (<a href="https://hogangnono.com/search?q=%EC%83%81%EC%95%94%EC%9B%94%EB%93%9C%EC%BB%B5%ED%8C%8C%ED%81%AC9%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%83%81%EC%95%94%EC%9B%94%EB%93%9C%EC%BB%B5%ED%8C%8C%ED%81%AC9%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>34</td>
+      <td>108,000</td>
+      <td>96,500</td>
+      <td>52,000</td>
+      <td>44,500</td>
+      <td>54.0%</td>
+      <td>10.0%</td>
+      <td>1,036</td>
+      <td>2,010</td>
+    </tr>
+    <tr>
+      <td>서울특별시 중구 신당동 840</td>
+      <td>중구</td>
+      <td>신당현대 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EB%8B%B9%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EB%8B%B9%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>33</td>
+      <td>100,000</td>
+      <td>89,500</td>
+      <td>48,300</td>
+      <td>41,200</td>
+      <td>54.0%</td>
+      <td>10.0%</td>
+      <td>942</td>
+      <td>1,993</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 강일동 66</td>
+      <td>강동구</td>
+      <td>강동리버스트8단지 (<a href="https://hogangnono.com/search?q=%EA%B0%95%EB%8F%99%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%8A%B88%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B0%95%EB%8F%99%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%8A%B88%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>84,500</td>
+      <td>83,500</td>
+      <td>44,000</td>
+      <td>39,500</td>
+      <td>53.0%</td>
+      <td>1.0%</td>
+      <td>946</td>
+      <td>2,021</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 현저동 200</td>
+      <td>서대문구</td>
+      <td>독립문극동 (<a href="https://hogangnono.com/search?q=%EB%8F%85%EB%A6%BD%EB%AC%B8%EA%B7%B9%EB%8F%99" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%85%EB%A6%BD%EB%AC%B8%EA%B7%B9%EB%8F%99" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>243,571</td>
+      <td>96,000</td>
+      <td>51,036</td>
+      <td>44,964</td>
+      <td>53.0%</td>
+      <td>60.0%</td>
+      <td>1,300</td>
+      <td>1,998</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 대방동 501</td>
+      <td>동작구</td>
+      <td>대방대림 (<a href="https://hogangnono.com/search?q=%EB%8C%80%EB%B0%A9%EB%8C%80%EB%A6%BC" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8C%80%EB%B0%A9%EB%8C%80%EB%A6%BC" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>115,000</td>
+      <td>100,000</td>
+      <td>53,083</td>
+      <td>46,917</td>
+      <td>53.0%</td>
+      <td>13.0%</td>
+      <td>1,628</td>
+      <td>1,993</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 이문동 64</td>
+      <td>동대문구</td>
+      <td>쌍용 (<a href="https://hogangnono.com/search?q=%EC%8C%8D%EC%9A%A9" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8C%8D%EC%9A%A9" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>84,700</td>
+      <td>75,500</td>
+      <td>39,000</td>
+      <td>36,500</td>
+      <td>52.0%</td>
+      <td>10.0%</td>
+      <td>1,563</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 길동 400</td>
+      <td>강동구</td>
+      <td>길동우성 (<a href="https://hogangnono.com/search?q=%EA%B8%B8%EB%8F%99%EC%9A%B0%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B8%B8%EB%8F%99%EC%9A%B0%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>117,000</td>
+      <td>91,333</td>
+      <td>47,000</td>
+      <td>44,333</td>
+      <td>52.0%</td>
+      <td>21.0%</td>
+      <td>811</td>
+      <td>1,994</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 답십리동 990</td>
+      <td>동대문구</td>
+      <td>두산1단지 (<a href="https://hogangnono.com/search?q=%EB%91%90%EC%82%B01%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%91%90%EC%82%B01%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>100,500</td>
+      <td>85,800</td>
+      <td>45,000</td>
+      <td>40,800</td>
+      <td>52.0%</td>
+      <td>14.0%</td>
+      <td>739</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 답십리동 1014</td>
+      <td>동대문구</td>
+      <td>답십리파크자이 (<a href="https://hogangnono.com/search?q=%EB%8B%B5%EC%8B%AD%EB%A6%AC%ED%8C%8C%ED%81%AC%EC%9E%90%EC%9D%B4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8B%B5%EC%8B%AD%EB%A6%AC%ED%8C%8C%ED%81%AC%EC%9E%90%EC%9D%B4" target="_blank">네이버부동산</a>)</td>
+      <td>20</td>
+      <td>103,700</td>
+      <td>91,000</td>
+      <td>47,342</td>
+      <td>43,658</td>
+      <td>52.0%</td>
+      <td>12.0%</td>
+      <td>802</td>
+      <td>2,019</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 대방동 503</td>
+      <td>동작구</td>
+      <td>대방주공2단지 (<a href="https://hogangnono.com/search?q=%EB%8C%80%EB%B0%A9%EC%A3%BC%EA%B3%B52%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8C%80%EB%B0%A9%EC%A3%BC%EA%B3%B52%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>114,900</td>
+      <td>96,500</td>
+      <td>50,000</td>
+      <td>46,500</td>
+      <td>52.0%</td>
+      <td>16.0%</td>
+      <td>798</td>
+      <td>1,995</td>
+    </tr>
+    <tr>
+      <td>서울특별시 성동구 마장동 818</td>
+      <td>성동구</td>
+      <td>청계현대 (<a href="https://hogangnono.com/search?q=%EC%B2%AD%EA%B3%84%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B2%AD%EA%B3%84%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>98,000</td>
+      <td>86,000</td>
+      <td>44,000</td>
+      <td>42,000</td>
+      <td>51.0%</td>
+      <td>12.0%</td>
+      <td>1,017</td>
+      <td>1,998</td>
+    </tr>
+    <tr>
+      <td>서울특별시 영등포구 양평동3가 101</td>
+      <td>영등포구</td>
+      <td>양평동6차현대 (<a href="https://hogangnono.com/search?q=%EC%96%91%ED%8F%89%EB%8F%996%EC%B0%A8%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%96%91%ED%8F%89%EB%8F%996%EC%B0%A8%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>102,000</td>
+      <td>94,250</td>
+      <td>48,000</td>
+      <td>46,250</td>
+      <td>51.0%</td>
+      <td>7.0%</td>
+      <td>770</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 남가좌동 377</td>
+      <td>서대문구</td>
+      <td>DMC래미안클라시스 (<a href="https://hogangnono.com/search?q=DMC%EB%9E%98%EB%AF%B8%EC%95%88%ED%81%B4%EB%9D%BC%EC%8B%9C%EC%8A%A4" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=DMC%EB%9E%98%EB%AF%B8%EC%95%88%ED%81%B4%EB%9D%BC%EC%8B%9C%EC%8A%A4" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>95,000</td>
+      <td>78,000</td>
+      <td>40,000</td>
+      <td>38,000</td>
+      <td>51.0%</td>
+      <td>17.0%</td>
+      <td>1,114</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍은동 455</td>
+      <td>서대문구</td>
+      <td>홍은벽산 (<a href="https://hogangnono.com/search?q=%ED%99%8D%EC%9D%80%EB%B2%BD%EC%82%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%99%8D%EC%9D%80%EB%B2%BD%EC%82%B0" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>87,300</td>
+      <td>68,500</td>
+      <td>34,500</td>
+      <td>34,000</td>
+      <td>50.0%</td>
+      <td>21.0%</td>
+      <td>1,329</td>
+      <td>1,997</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 도화동 82</td>
+      <td>마포구</td>
+      <td>도화3지구우성 (<a href="https://hogangnono.com/search?q=%EB%8F%84%ED%99%943%EC%A7%80%EA%B5%AC%EC%9A%B0%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%8F%84%ED%99%943%EC%A7%80%EA%B5%AC%EC%9A%B0%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>100,000</td>
+      <td>85,000</td>
+      <td>42,850</td>
+      <td>42,150</td>
+      <td>50.0%</td>
+      <td>15.0%</td>
+      <td>1,222</td>
+      <td>1,991</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 염리동 515-1</td>
+      <td>마포구</td>
+      <td>염리상록 (<a href="https://hogangnono.com/search?q=%EC%97%BC%EB%A6%AC%EC%83%81%EB%A1%9D" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%97%BC%EB%A6%AC%EC%83%81%EB%A1%9D" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>99,000</td>
+      <td>90,250</td>
+      <td>45,000</td>
+      <td>45,250</td>
+      <td>50.0%</td>
+      <td>8.0%</td>
+      <td>678</td>
+      <td>1,997</td>
+    </tr>
+    <tr>
+      <td>서울특별시 종로구 창신동 702</td>
+      <td>종로구</td>
+      <td>창신쌍용1단지 (<a href="https://hogangnono.com/search?q=%EC%B0%BD%EC%8B%A0%EC%8C%8D%EC%9A%A91%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%B0%BD%EC%8B%A0%EC%8C%8D%EC%9A%A91%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>30</td>
+      <td>89,700</td>
+      <td>72,000</td>
+      <td>35,875</td>
+      <td>36,125</td>
+      <td>50.0%</td>
+      <td>19.0%</td>
+      <td>585</td>
+      <td>1,992</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 북아현동 1009</td>
+      <td>서대문구</td>
+      <td>두산 (<a href="https://hogangnono.com/search?q=%EB%91%90%EC%82%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%91%90%EC%82%B0" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>100,700</td>
+      <td>88,900</td>
+      <td>43,175</td>
+      <td>45,725</td>
+      <td>49.0%</td>
+      <td>11.0%</td>
+      <td>956</td>
+      <td>1,999</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍제동 82</td>
+      <td>서대문구</td>
+      <td>홍제한양 (<a href="https://hogangnono.com/search?q=%ED%99%8D%EC%A0%9C%ED%95%9C%EC%96%91" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%99%8D%EC%A0%9C%ED%95%9C%EC%96%91" target="_blank">네이버부동산</a>)</td>
+      <td>23</td>
+      <td>80,500</td>
+      <td>71,250</td>
+      <td>34,650</td>
+      <td>36,600</td>
+      <td>49.0%</td>
+      <td>11.0%</td>
+      <td>998</td>
+      <td>1,993</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍은동 202-5</td>
+      <td>서대문구</td>
+      <td>현대 (<a href="https://hogangnono.com/search?q=%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>31</td>
+      <td>90,000</td>
+      <td>75,500</td>
+      <td>36,700</td>
+      <td>38,800</td>
+      <td>49.0%</td>
+      <td>16.0%</td>
+      <td>610</td>
+      <td>1,988</td>
+    </tr>
+    <tr>
+      <td>서울특별시 성동구 응봉동 98</td>
+      <td>성동구</td>
+      <td>금호현대 (<a href="https://hogangnono.com/search?q=%EA%B8%88%ED%98%B8%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B8%88%ED%98%B8%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>100,000</td>
+      <td>90,000</td>
+      <td>43,000</td>
+      <td>47,000</td>
+      <td>48.0%</td>
+      <td>9.0%</td>
+      <td>644</td>
+      <td>1,990</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 회기동 65</td>
+      <td>동대문구</td>
+      <td>신현대 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%ED%98%84%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%ED%98%84%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>30</td>
+      <td>62,000</td>
+      <td>62,000</td>
+      <td>30,000</td>
+      <td>32,000</td>
+      <td>48.0%</td>
+      <td>0.0%</td>
+      <td>736</td>
+      <td>1,989</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신월동 987-1</td>
+      <td>양천구</td>
+      <td>신월시영 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EC%9B%94%EC%8B%9C%EC%98%81" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EC%9B%94%EC%8B%9C%EC%98%81" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>85,000</td>
+      <td>59,800</td>
+      <td>28,500</td>
+      <td>31,300</td>
+      <td>48.0%</td>
+      <td>29.0%</td>
+      <td>2,256</td>
+      <td>1,988</td>
+    </tr>
+    <tr>
+      <td>서울특별시 서대문구 홍은동 470</td>
+      <td>서대문구</td>
+      <td>힐스테이트홍은포레스트 (<a href="https://hogangnono.com/search?q=%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8%ED%99%8D%EC%9D%80%ED%8F%AC%EB%A0%88%EC%8A%A4%ED%8A%B8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%ED%9E%90%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8%ED%99%8D%EC%9D%80%ED%8F%AC%EB%A0%88%EC%8A%A4%ED%8A%B8" target="_blank">네이버부동산</a>)</td>
+      <td>24</td>
+      <td>94,000</td>
+      <td>89,900</td>
+      <td>43,233</td>
+      <td>46,667</td>
+      <td>48.0%</td>
+      <td>4.0%</td>
+      <td>623</td>
+      <td>2,022</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 신대방동 713</td>
+      <td>동작구</td>
+      <td>보라매롯데낙천대 (<a href="https://hogangnono.com/search?q=%EB%B3%B4%EB%9D%BC%EB%A7%A4%EB%A1%AF%EB%8D%B0%EB%82%99%EC%B2%9C%EB%8C%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EB%B3%B4%EB%9D%BC%EB%A7%A4%EB%A1%AF%EB%8D%B0%EB%82%99%EC%B2%9C%EB%8C%80" target="_blank">네이버부동산</a>)</td>
+      <td>22</td>
+      <td>93,000</td>
+      <td>82,875</td>
+      <td>39,900</td>
+      <td>42,975</td>
+      <td>48.0%</td>
+      <td>10.0%</td>
+      <td>734</td>
+      <td>2,003</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 이문동 225</td>
+      <td>동대문구</td>
+      <td>이문e편한세상 (<a href="https://hogangnono.com/search?q=%EC%9D%B4%EB%AC%B8e%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%9D%B4%EB%AC%B8e%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>204,615</td>
+      <td>79,125</td>
+      <td>36,833</td>
+      <td>42,292</td>
+      <td>47.0%</td>
+      <td>61.0%</td>
+      <td>1,378</td>
+      <td>2,003</td>
+    </tr>
+    <tr>
+      <td>서울특별시 강동구 강일동 686</td>
+      <td>강동구</td>
+      <td>강일리버파크7단지 (<a href="https://hogangnono.com/search?q=%EA%B0%95%EC%9D%BC%EB%A6%AC%EB%B2%84%ED%8C%8C%ED%81%AC7%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B0%95%EC%9D%BC%EB%A6%AC%EB%B2%84%ED%8C%8C%ED%81%AC7%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>104,000</td>
+      <td>86,700</td>
+      <td>41,000</td>
+      <td>45,700</td>
+      <td>47.0%</td>
+      <td>16.0%</td>
+      <td>731</td>
+      <td>2,009</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동대문구 전농동 155</td>
+      <td>동대문구</td>
+      <td>전농삼성 (<a href="https://hogangnono.com/search?q=%EC%A0%84%EB%86%8D%EC%82%BC%EC%84%B1" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%A0%84%EB%86%8D%EC%82%BC%EC%84%B1" target="_blank">네이버부동산</a>)</td>
+      <td>26</td>
+      <td>86,700</td>
+      <td>78,000</td>
+      <td>36,900</td>
+      <td>41,100</td>
+      <td>47.0%</td>
+      <td>10.0%</td>
+      <td>602</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 동작구 신대방동 565</td>
+      <td>동작구</td>
+      <td>신대방우성1차 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EB%8C%80%EB%B0%A9%EC%9A%B0%EC%84%B11%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EB%8C%80%EB%B0%A9%EC%9A%B0%EC%84%B11%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>25</td>
+      <td>110,000</td>
+      <td>80,000</td>
+      <td>37,300</td>
+      <td>42,700</td>
+      <td>47.0%</td>
+      <td>27.0%</td>
+      <td>1,335</td>
+      <td>1,988</td>
+    </tr>
+    <tr>
+      <td>서울특별시 양천구 신정동 743-2</td>
+      <td>양천구</td>
+      <td>신정현대6차 (<a href="https://hogangnono.com/search?q=%EC%8B%A0%EC%A0%95%ED%98%84%EB%8C%806%EC%B0%A8" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%8B%A0%EC%A0%95%ED%98%84%EB%8C%806%EC%B0%A8" target="_blank">네이버부동산</a>)</td>
+      <td>32</td>
+      <td>94,800</td>
+      <td>82,000</td>
+      <td>36,750</td>
+      <td>45,250</td>
+      <td>45.0%</td>
+      <td>13.0%</td>
+      <td>703</td>
+      <td>2,000</td>
+    </tr>
+    <tr>
+      <td>서울특별시 성동구 옥수동 436</td>
+      <td>성동구</td>
+      <td>극동그린 (<a href="https://hogangnono.com/search?q=%EA%B7%B9%EB%8F%99%EA%B7%B8%EB%A6%B0" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EA%B7%B9%EB%8F%99%EA%B7%B8%EB%A6%B0" target="_blank">네이버부동산</a>)</td>
+      <td>42</td>
+      <td>117,500</td>
+      <td>115,500</td>
+      <td>51,000</td>
+      <td>64,500</td>
+      <td>44.0%</td>
+      <td>1.0%</td>
+      <td>583</td>
+      <td>1,997</td>
+    </tr>
+    <tr>
+      <td>서울특별시 마포구 상암동 1637</td>
+      <td>마포구</td>
+      <td>상암월드컵파크2단지 (<a href="https://hogangnono.com/search?q=%EC%83%81%EC%95%94%EC%9B%94%EB%93%9C%EC%BB%B5%ED%8C%8C%ED%81%AC2%EB%8B%A8%EC%A7%80" target="_blank">호갱노노</a>/<a href="https://new.land.naver.com/search?sk=%EC%83%81%EC%95%94%EC%9B%94%EB%93%9C%EC%BB%B5%ED%8C%8C%ED%81%AC2%EB%8B%A8%EC%A7%80" target="_blank">네이버부동산</a>)</td>
+      <td>21</td>
+      <td>100,000</td>
+      <td>80,600</td>
+      <td>34,125</td>
+      <td>46,475</td>
+      <td>42.0%</td>
+      <td>19.0%</td>
+      <td>657</td>
+      <td>2,003</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
